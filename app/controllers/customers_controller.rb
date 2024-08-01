@@ -6,7 +6,6 @@ class CustomersController < ApplicationController
   end
 
   def show
-    
   end
 
   def new
@@ -17,7 +16,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new customer_params
 
     if @customer.save
-      redirect_to customer_path, status: :ok, notice: "Succeful Client Cadastred !!"
+      redirect_to customer_path, status: :ok, notice: "Succefull Client Cadastred !!"
     else
       render :new, status: :unprocessable_entity
     end
@@ -42,6 +41,6 @@ class CustomersController < ApplicationController
   end
 
   def load_customer
-    @customers = Customer.find params(:id)
+    @customer = Customer.find params(:id)
   end
 end
