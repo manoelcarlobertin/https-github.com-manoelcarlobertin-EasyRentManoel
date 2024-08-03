@@ -1,0 +1,11 @@
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex">
+            <spam class="flex-grow-1 fw-bold">Name</spam>
+            <spam><%= customer.name %></spam>
+        </div>
+    </div>
+    <div class="card-footer">
+        <%= link_to "Edit", edit_customer_path(customer), class:"btn btn-info" %>
+    </div>
+</div>
