@@ -1,0 +1,18 @@
+<div class="card">
+    <%= simple_form_for @equipment do |form| %>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-md-9">
+                    <%= form.input :name %>
+                </div>
+                <div class="col-12 col-md-3">
+                    <%= form.input :serial_number %>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+            <%= link_to "Go Back", equipaments_path, class: "btn btn-primary" %>
+            <%= form.button :button, class: "btn-primary" %>
+        </div>
+    <% end %>
+</div>

@@ -1,0 +1,9 @@
+<div class="d-flex">
+    <h1 class="flex-grow-1">Lista de Equipamentos</h1>
+    <div class="list-actions">
+        <%= link_to "New", new_equipament_path, class: "btn btn-primary" %>
+    </div>
+</div>
+
+<div class="d-flex flex-column gap-4">
+    <%= render @equipaments %>

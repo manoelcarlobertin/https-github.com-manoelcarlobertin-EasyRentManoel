@@ -1,17 +1,24 @@
 class CustomersController < ApplicationController
-  # before_action :authenticate_user!
-  before_action :load_customer, only: %i[edit update destroy]
+  before_action :authenticate_user!
+  before_action :load_customer, only: %i[show edit update destroy]
   def index
     @customers = Customer.order(:name)
+    authorize @customers
+  end
 
+  def show
+    authorize @customer
   end
 
   def new
     @customer = Customer.new
+    authorize @customer
   end
 
   def create
     @customer = Customer.new(customer_params)
+    authorize @customer
+
     respond_to do |format|
       if @customer.save
         format.html { redirect_to customers_url, status: :ok, notice: "Succefull Cadastred Customer!!" }
@@ -22,9 +29,12 @@ class CustomersController < ApplicationController
   end
 
   def edit
+    authorize @customer
   end
 
   def update
+    authorize @customer
+
     respond_to do |format|
       if @customer.update(customer_params)
         format.html { redirect_to customer_params, notice: "Succefull Updated Custumer!!" }
@@ -35,6 +45,8 @@ class CustomersController < ApplicationController
   end
 
   def destroy
+    authorize @customer
+
     @customer.destroy
 
     respond_to do |format|
